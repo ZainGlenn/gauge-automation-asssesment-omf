@@ -13,16 +13,16 @@ Then I should see a possible installment range
 Whne I view breakdown
 Then I should see my Capitial and term values
 
-* Navigate to url "https://www.oldmutualfinance.co.za/"
+* Navigate to url "https://www.oldmutualfinance.co.za/" maximized
 * Validate home page is open
-* Navigate to "Personal Loans" page via menu bar
+* Navigate to "Personal Loans" page via navigation bar
 * Validate personal loans page is open
 * Validate Calculator tab is selected by default
-* Select ammout "R50 000"
-* Validate "Select a loan term: " is displayed in calculator section
+* Select amount R"50 000" on calculator
+* Validate "SELECT A LOAN TERM:" is displayed in calculator section
 * Select loan term "84" months
-* Validate "Your total deduction will be between :" is displayed in calculator section
-* Validate monthly installment is "R,1521.05 and R1600.42" is displayed in calclator section
+* Validate "Your total deduction will be between:" is displayed on cost breakdown in calculator section
+* Validate installment is between "R1,521.05" and "R1,600.42" per month is displayed in calculator section
 * Select View Breakdown link in calculator section
 * Validate Capital value is "R50,000.00" on calculator section
 * Validate Term value is "84 months" on calculator section

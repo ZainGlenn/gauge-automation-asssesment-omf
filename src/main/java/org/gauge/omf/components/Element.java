@@ -40,6 +40,11 @@ class Element<T> {
         return (T) this;
     }
 
+    public T checkAttribute(String attribute, String value) {
+        element.shouldBe(Condition.attribute(attribute, value));
+        return (T) this;
+    }
+
     public T waitForElement() {
         return waitForElement(defaultMaxWaitTimeSeconds);
     }
@@ -47,6 +52,11 @@ class Element<T> {
     public T waitForElement(int timeoutInSeconds) {
         element.shouldHave(Condition.exist, Duration.ofSeconds(timeoutInSeconds));
         log.info("Waited for element - " + element.toString());
+        return (T) this;
+    }
+
+    public T andExactText(String text) {
+        element.shouldHave(Condition.exactText(text));
         return (T) this;
     }
 
