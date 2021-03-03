@@ -10,7 +10,6 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class TestSettings {
-    private static final String COMMON_PROPERTIES_FILE_NAME = "common.properties";
     protected final Logger log;
     private final Properties properties;
 
@@ -33,14 +32,13 @@ public class TestSettings {
     }
 
     public int getMaxWaitTimeSeconds() {
-        String maxWaitTime = getProperty("element.max.wait.time", "30");
+        String maxWaitTime = getProperty("element.max.wait.time", "10");
         return Integer.parseInt(maxWaitTime);
     }
 
     private void loadAllProperties() {
         try {
             properties.putAll(loadProperties(getPropertiesFileName()));
-            properties.putAll(loadProperties(COMMON_PROPERTIES_FILE_NAME));
             properties.putAll(loadSystemProperties());
         } catch (IOException e) {
             log.error(e.getMessage(), e);
