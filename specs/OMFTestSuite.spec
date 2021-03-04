@@ -13,7 +13,7 @@ Then I should see a possible installment range
 Whne I view breakdown
 Then I should see my Capitial and term values
 
-* Navigate to url "https://www.oldmutualfinance.co.za/" maximized
+* Navigate to url "https://www.oldmutualfinance.co.za/"
 * Validate home page is open
 * Navigate to "Personal Loans" page via navigation bar
 * Validate personal loans page is open

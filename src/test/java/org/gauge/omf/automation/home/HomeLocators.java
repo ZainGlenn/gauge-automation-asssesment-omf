@@ -1,4 +1,4 @@
-package org.gauge.omf.steps.home;
+package org.gauge.omf.automation.home;
 
 import org.openqa.selenium.By;
 

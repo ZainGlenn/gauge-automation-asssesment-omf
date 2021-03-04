@@ -1,4 +1,4 @@
-package org.gauge.omf.steps.home;
+package org.gauge.omf.automation.home;
 
 import org.gauge.omf.components.Button;
 import org.gauge.omf.components.Label;

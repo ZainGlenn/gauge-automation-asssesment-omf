@@ -1,26 +1,81 @@
-plugins {
-    id 'java'
-    id 'org.gauge' version '1.8.2'
+buildscript {
+    dependencies {
+        classpath "gradle.plugin.org.gauge.gradle:gauge-gradle-plugin:1.8.1"
+    }
 }
 
-group 'org.gauge.omf'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+    id 'org.gauge' version '1.8.1'
+}
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+group = 'omf-web-automation'
+version = '1.0'
+
+description = "OMF Web Automation Tests"
+
+sourceCompatibility = 13.0
+
+configurations {
+    testrailCompile
+    testrailRuntime
+    testrailTestCompile
+    testrailTestImplementation
+    testrailTestRuntime
+}
+
+configurations.all {
+    exclude group: "junit"
+}
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.codeborne/selenide
-    implementation 'com.codeborne:selenide:5.19.0'
-    implementation 'com.thoughtworks.gauge:gauge-java:0.7.13'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    implementation(
+            'org.slf4j:slf4j-log4j12:1.7.29',
+            'com.codeborne:selenide:5.14.2',
+            'com.thoughtworks.gauge:gauge-java:0.7.13'
+    )
+
+    testRuntimeOnly(
+            'org.hamcrest:hamcrest-core:2.2',
+            'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+    )
+
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.6.0') {
+        exclude group: 'org.hamcrest'
+    }
+}
+
+sourceSets {
+    test {
+        output.resourcesDir = "build/classes/test"
+    }
+}
+
+clean.doFirst {
+    delete "logs/gauge.log"
+    delete "logs/api.log"
+    delete "reports/html-report"
+    delete "reports/json-report"
+}
+
+subprojects {
+    apply plugin: 'java'
 }
 
 test {
     useJUnitPlatform()
+}
+
+gauge {
+    specsDir = 'specs'
+    inParallel = false
+    nodes = 1
+    env = 'default'
+    additionalFlags = '--verbose'
 }

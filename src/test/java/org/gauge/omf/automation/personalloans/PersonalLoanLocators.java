@@ -1,4 +1,4 @@
-package org.gauge.omf.steps.personalloans;
+package org.gauge.omf.automation.personalloans;
 
 import org.openqa.selenium.By;
 

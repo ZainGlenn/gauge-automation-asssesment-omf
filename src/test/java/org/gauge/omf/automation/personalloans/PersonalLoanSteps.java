@@ -1,7 +1,7 @@
-package org.gauge.omf.steps.personalloans;
+package org.gauge.omf.automation.personalloans;
 
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
-import org.gauge.omf.utils.SeleniumUtil;
 
 public class PersonalLoanSteps {
     private final PersonalLoanObjects personalLoanObjects;
@@ -24,6 +24,8 @@ public class PersonalLoanSteps {
         personalLoanObjects.getCalculatorSection()
                 .waitForElement()
                 .appearedOnPage();
+
+        Gauge.captureScreenshot();
     }
 
     @Step("Validate Calculator tab is selected by default")
@@ -45,6 +47,8 @@ public class PersonalLoanSteps {
         personalLoanObjects.getCalculatorSectionHeader()
                 .waitForElement()
                 .andExactText(name);
+
+        Gauge.captureScreenshot();
     }
 
 
@@ -53,6 +57,7 @@ public class PersonalLoanSteps {
         personalLoanObjects.getTotalDeductionHeader()
                 .waitForElement()
                 .andExactText(name);
+
     }
 
     @Step("Select loan term <month> months")
@@ -71,6 +76,8 @@ public class PersonalLoanSteps {
         personalLoanObjects.getMaxAmount()
                 .waitForElement()
                 .andExactText(max);
+
+        Gauge.captureScreenshot();
     }
 
     @Step("Select View Breakdown link in calculator section")
@@ -85,6 +92,7 @@ public class PersonalLoanSteps {
         personalLoanObjects.getCapitalValue()
                 .waitForElement()
                 .andExactText(value);
+        Gauge.captureScreenshot();
     }
 
     @Step("Validate Term value is <84 months> on calculator section")
@@ -92,5 +100,6 @@ public class PersonalLoanSteps {
         personalLoanObjects.getTermValue()
                 .waitForElement()
                 .andExactText(value);
+        Gauge.captureScreenshot();
     }
 }

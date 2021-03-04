@@ -1,5 +1,6 @@
-package org.gauge.omf.steps.home;
+package org.gauge.omf.automation.home;
 
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
 
 public class HomeSteps {
@@ -40,6 +41,8 @@ public class HomeSteps {
         homeObjects.getInsuranceCardView()
                 .waitForElement()
                 .appearedOnPage();
+
+        Gauge.captureScreenshot();
     }
 
     @Step("Navigate to <name> page via navigation bar")

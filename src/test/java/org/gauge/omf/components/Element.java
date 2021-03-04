@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -29,13 +29,13 @@ class Element<T> {
     }
 
     public T appearedOnPage() {
-        element.should(Condition.appear, Duration.ofSeconds(defaultMaxWaitTimeSeconds));
+        element.waitUntil(Condition.appear, TimeUnit.SECONDS.toMillis(defaultMaxWaitTimeSeconds));
         log.info("Element appeared - " + element.toString());
         return (T) this;
     }
 
     public T visibleOnPage() {
-        element.should(Condition.visible, Duration.ofSeconds(defaultMaxWaitTimeSeconds));
+        element.waitUntil(Condition.visible, TimeUnit.SECONDS.toMillis(defaultMaxWaitTimeSeconds));
         log.info("Element is visible - " + element.toString());
         return (T) this;
     }
@@ -50,7 +50,7 @@ class Element<T> {
     }
 
     public T waitForElement(int timeoutInSeconds) {
-        element.shouldHave(Condition.exist, Duration.ofSeconds(timeoutInSeconds));
+        element.waitUntil(Condition.exist, TimeUnit.SECONDS.toMillis(timeoutInSeconds));
         log.info("Waited for element - " + element.toString());
         return (T) this;
     }

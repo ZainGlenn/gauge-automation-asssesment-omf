@@ -1,4 +1,4 @@
-package org.gauge.omf.steps.personalloans;
+package org.gauge.omf.automation.personalloans;
 
 import org.gauge.omf.components.Button;
 import org.gauge.omf.components.Label;
