@@ -8,6 +8,7 @@ class PersonalLoanLocators {
     public static By needHelpingHandHeader = By.xpath("//*[text() = 'NEED A HELPING HAND?']");
     public static By calculatorSectionHeader = By.xpath("//*[@id = 'calcTermHold']/p[1]");
     public static By totalDeductionHeader = By.xpath("//*[@id = 'calcTotalsRes']/p[1]");
+    public static By backButton = By.xpath("//*[contains(@class, 'repCalcBackMth')]");
     public static By personalLoansActiveTab = By.xpath("//*[contains(@class, 'resp-tab-active')][text() = 'PERSONAL LOANS']");
     public static By minAmount = By.id("paymin");
     public static By maxAmount = By.id("paymax");

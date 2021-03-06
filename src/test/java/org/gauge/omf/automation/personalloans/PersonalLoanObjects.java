@@ -17,6 +17,7 @@ class PersonalLoanObjects {
     private final Button capitalValue;
     private final Button termValue;
     private final Label totalDeductionHeader;
+    private final Button backButton;
 
     public PersonalLoanObjects() {
         this.calculatorTabHeader = new Label(PersonalLoanLocators.calculatorTabHeader);
@@ -30,6 +31,11 @@ class PersonalLoanObjects {
         this.capitalValue = new Button(PersonalLoanLocators.capitalValue);
         this.termValue = new Button(PersonalLoanLocators.termValue);
         this.totalDeductionHeader = new Label(PersonalLoanLocators.totalDeductionHeader);
+        this.backButton = new Button(PersonalLoanLocators.backButton);
+    }
+
+    public Button getBackButton() {
+        return backButton;
     }
 
     public Label getTotalDeductionHeader() {
@@ -66,6 +72,10 @@ class PersonalLoanObjects {
 
     public void scrollMonthToCenter(String value){
         SeleniumUtil.scrollToCenter(PersonalLoanLocators.determineMonth(value));
+    }
+
+    public void scrollToBackButton(){
+        SeleniumUtil.scrollToCenter(PersonalLoanLocators.backButton);
     }
 
     public Label getCalculatorSectionHeader() {

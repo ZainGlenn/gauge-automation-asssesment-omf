@@ -60,4 +60,12 @@ class Element<T> {
         return (T) this;
     }
 
+    public T scroll(){
+        element.scrollTo();
+        return (T) this;
+    }
+
+    public SelenideElement getElement() {
+        return element;
+    }
 }

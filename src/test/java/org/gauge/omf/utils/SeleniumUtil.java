@@ -20,15 +20,11 @@ import java.nio.file.Paths;
 public class SeleniumUtil {
     private static final Logger log = LoggerFactory.getLogger(SeleniumUtil.class);
 
-    public static void scrollToTop() {
-        Selenide.executeJavaScript("window.scrollTo(0, 0);");
-    }
-
     public static void scrollToCenter(By locator) {
         WebElement element = WebDriverRunner.getWebDriver().findElement(locator);
         String scrollElementIntoMiddle = "var viewPortHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);"
                 + "var elementTop = arguments[0].getBoundingClientRect().top;"
-                + "window.scrollBy(0, elementTop-(viewPortHeight/2));";
+                + "window.scrollBy(0, (elementTop-(viewPortHeight/2));";
         ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript(scrollElementIntoMiddle, element);
     }
 

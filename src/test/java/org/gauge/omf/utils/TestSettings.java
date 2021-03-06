@@ -65,11 +65,6 @@ public class TestSettings {
         return properties.getProperty("browser.localisation", "en");
     }
 
-    public boolean isSelenoid() {
-        String selenoid = properties.getProperty("use.selenoid", "true");
-        return Boolean.parseBoolean(selenoid);
-    }
-
     public boolean isJenkins() {
         String jenkins = properties.getProperty("jenkins.headless", "false");
         return Boolean.parseBoolean(jenkins);
@@ -87,6 +82,10 @@ public class TestSettings {
 
     public String remoteUrl() {
         return properties.getProperty("browser.remoteUrl", null);
+    }
+
+    public String getBrowserType(){
+        return properties.getProperty("browser.type", "chrome");
     }
 
     private static class SingletonHolder {

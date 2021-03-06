@@ -1,7 +1,9 @@
 package org.gauge.omf.automation.personalloans;
 
+import com.codeborne.selenide.WebDriverRunner;
 import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.Step;
+import org.openqa.selenium.interactions.Actions;
 
 public class PersonalLoanSteps {
     private final PersonalLoanObjects personalLoanObjects;
@@ -47,7 +49,6 @@ public class PersonalLoanSteps {
         personalLoanObjects.getCalculatorSectionHeader()
                 .waitForElement()
                 .andExactText(name);
-
         Gauge.captureScreenshot();
     }
 
@@ -57,7 +58,6 @@ public class PersonalLoanSteps {
         personalLoanObjects.getTotalDeductionHeader()
                 .waitForElement()
                 .andExactText(name);
-
     }
 
     @Step("Select loan term <month> months")
@@ -65,6 +65,7 @@ public class PersonalLoanSteps {
         personalLoanObjects.scrollMonthToCenter(month);
         personalLoanObjects.getMonth(month)
                 .waitForElement()
+                .scroll()
                 .clickElement();
     }
 
@@ -76,7 +77,6 @@ public class PersonalLoanSteps {
         personalLoanObjects.getMaxAmount()
                 .waitForElement()
                 .andExactText(max);
-
         Gauge.captureScreenshot();
     }
 
